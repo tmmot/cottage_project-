@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+.next
+out
+coverage
+
+# env
+.env
+.env.local
+.env.*.local
+
+# logs
+npm-debug.log*
+
+# prisma
+a/.env

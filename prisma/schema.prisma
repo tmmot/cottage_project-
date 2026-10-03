@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String   @id @default(cuid())
+  email                 String   @unique
+  displayName           String
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  lastSeenAt            DateTime @default(now())
+  onboardingCompleted   Boolean  @default(false)
+  onboardingVersion    Int      @default(1)
+  connectedServices     ConnectedService[]
+  photos                Photo[]
+  whiteboardEntries     WhiteboardEntry[]
+  whiteboardComments    WhiteboardComment[]
+  fitnessEntries        FitnessEntry[]
+  fitnessComments       FitnessComment[]
+  notificationsSent     Notification[] @relation("NotificationSender")
+  notificationsReceived Notification[] @relation("NotificationRecipient")
+  features              UserFeatureAccess[]
+}
+
+model ConnectedService {
+  id            String   @id @default(cuid())
+  userId        String
+  provider      String
+  accountId     String?
+  accessToken   String?
+  refreshToken  String?
+  scope         String?
+  expiresAt     DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  user          User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, provider])
+}
+
+model Photo {
+  id          String    @id @default(cuid())
+  userId      String
+  url         String
+  thumbnail   String?
+  caption     String?
+  category    String
+  takenAt     DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  user        User      @relation(fields: [userId], references: [id])
+}
+
+model WhiteboardEntry {
+  id          String             @id @default(cuid())
+  authorId    String
+  content     String
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  author      User               @relation(fields: [authorId], references: [id])
+  comments    WhiteboardComment[]
+}
+
+model WhiteboardComment {
+  id          String          @id @default(cuid())
+  entryId     String
+  authorId    String
+  content     String
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  entry       WhiteboardEntry @relation(fields: [entryId], references: [id])
+  author      User            @relation(fields: [authorId], references: [id])
+}
+
+model FitnessEntry {
+  id          String          @id @default(cuid())
+  userId      String
+  title       String
+  activity    String
+  durationMin Int?
+  date        DateTime
+  notes       String?
+  completed   Boolean         @default(false)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  user        User            @relation(fields: [userId], references: [id])
+  comments    FitnessComment[]
+}
+
+model FitnessComment {
+  id          String       @id @default(cuid())
+  entryId     String
+  authorId    String
+  content     String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  entry       FitnessEntry @relation(fields: [entryId], references: [id])
+  author      User         @relation(fields: [authorId], references: [id])
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  senderId    String?
+  recipientId String
+  kind        String
+  title       String
+  body        String
+  target      String?
+  readAt      DateTime?
+  createdAt   DateTime @default(now())
+  sender      User?    @relation("NotificationSender", fields: [senderId], references: [id])
+  recipient   User     @relation("NotificationRecipient", fields: [recipientId], references: [id])
+}
+
+model UserFeatureAccess {
+  id         String   @id @default(cuid())
+  userId     String
+  feature    String
+  enabled    Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, feature])
+}
