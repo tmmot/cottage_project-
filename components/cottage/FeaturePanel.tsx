@@ -1,11 +1,12 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { X, ArrowRight, Sparkles } from "lucide-react";
 import type { CottageFeature } from "@/lib/cottage-data";
 
 interface FeaturePanelProps {
   feature: CottageFeature;
+  onClose: () => void;
 }
 
-export function FeaturePanel({ feature }: FeaturePanelProps) {
+export function FeaturePanel({ feature, onClose }: FeaturePanelProps) {
   return (
     <div className="cottage-panel p-4 sm:p-5">
       <div className="flex items-start justify-between gap-3">
@@ -13,9 +14,13 @@ export function FeaturePanel({ feature }: FeaturePanelProps) {
           <p className="text-[0.54rem] font-bold uppercase tracking-[0.25em] text-stone-500">Object</p>
           <h2 className="mt-2 text-[2.15rem] font-black leading-none text-stone-900">{feature.title}</h2>
         </div>
-        <span className={`rounded-full border-[2px] px-2 py-1 text-[0.5rem] font-bold uppercase tracking-[0.16em] ${feature.accentClass}`}>
-          {feature.status}
-        </span>
+        <button
+          onClick={onClose}
+          className="pixel-button pixel-button-secondary h-10 w-10 rounded-full p-0 flex items-center justify-center"
+          aria-label="Close"
+        >
+          <X className="h-4 w-4" />
+        </button>
       </div>
 
       <p className="mt-4 text-[1.05rem] leading-6 text-stone-700">{feature.description}</p>

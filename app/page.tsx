@@ -5,7 +5,7 @@ import { AudioLines, Sparkles } from "lucide-react";
 import { CottageScene } from "@/components/cottage/CottageScene";
 import { FeaturePanel } from "@/components/cottage/FeaturePanel";
 import { PaikiCompanion } from "@/components/cottage/PaikiCompanion";
-import { cottageObjects, cottageQuickFacts, onboardingDialogues } from "@/lib/cottage-data";
+import { cottageObjects, onboardingDialogues } from "@/lib/cottage-data";
 
 export default function HomePage() {
   const [selectedObject, setSelectedObject] = useState<string>("fridge");
@@ -88,16 +88,6 @@ export default function HomePage() {
 
               <div className="absolute left-[7%] top-[12%] h-[20%] w-[26%] rounded-[18px] border-[3px] border-[#7a6658] bg-[#f7efe0]/55" />
 
-              <div className="absolute bottom-[10%] left-1/2 z-30 -translate-x-1/2">
-                <div className="flex flex-wrap items-center justify-center gap-2 px-4 pb-2">
-                  <div className="room-pill px-3 py-1.5 text-[0.54rem] uppercase tracking-[0.15em] text-stone-700">Mailbox</div>
-                  <div className="room-pill px-3 py-1.5 text-[0.54rem] uppercase tracking-[0.15em] text-stone-700">Fridge</div>
-                  <div className="room-pill px-3 py-1.5 text-[0.54rem] uppercase tracking-[0.15em] text-stone-700">Music</div>
-                  <div className="room-pill px-3 py-1.5 text-[0.54rem] uppercase tracking-[0.15em] text-stone-700">Paiki</div>
-                  <div className="room-pill px-3 py-1.5 text-[0.54rem] uppercase tracking-[0.15em] text-stone-700">Bookshelf</div>
-                </div>
-              </div>
-
               <div className="absolute inset-0 z-20">
                 <CottageScene selectedObject={selectedObject} setSelectedObject={setSelectedObject} />
               </div>
@@ -133,7 +123,7 @@ export default function HomePage() {
           </section>
 
           <aside className="space-y-5">
-            <FeaturePanel feature={selectedFeature} />
+            <FeaturePanel feature={selectedFeature} onClose={() => {}} />
             <PaikiCompanion dialogues={onboardingDialogues} />
           </aside>
         </div>
