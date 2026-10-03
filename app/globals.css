@@ -5,24 +5,22 @@
 @tailwind utilities;
 
 :root {
-  --bg-cream: #e7dcc5;
-  --bg-warm: #d8c4a2;
-  --bg-peach: #f2d8b3;
-  --panel: #f1e7d6;
-  --panel-2: #f7f1e8;
-  --ink: #2d2a29;
-  --muted: #5f564e;
-  --wood: #c88d60;
-  --wood-dark: #9a6b45;
-  --floor: #d0a272;
-  --wall: #efe2c7;
-  --teal: #5c8b8f;
-  --teal-deep: #335d64;
-  --green: #7b9c7a;
-  --rose: #d29075;
-  --gold: #d9bb74;
-  --shadow: rgba(42, 28, 20, 0.18);
-  --panel-shadow: rgba(78, 59, 41, 0.16);
+  --bg-cream: #e9dcc1;
+  --bg-warm: #d9c09f;
+  --panel: #f3e6d5;
+  --panel-soft: #f8f1e7;
+  --ink: #2b2927;
+  --muted: #645a52;
+  --wood: #c98c61;
+  --wood-deep: #9b6b45;
+  --floor: #d5a778;
+  --wall: #efe1c3;
+  --teal: #5d8e90;
+  --teal-deep: #335f63;
+  --green: #7f9d78;
+  --rose: #d78874;
+  --gold: #d6b364;
+  --shadow: rgba(60, 42, 28, 0.16);
 }
 
 html {
@@ -33,8 +31,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(180deg, #e8d9bb 0%, #d9c8a8 100%);
+  background: linear-gradient(180deg, #e8d9ba 0%, #d8c7a4 100%);
   color: var(--ink);
   font-family: 'VT323', monospace;
   letter-spacing: 0.02em;
@@ -58,7 +55,7 @@ button:hover {
 }
 
 button:focus-visible {
-  outline: 3px solid rgba(92, 139, 143, 0.8);
+  outline: 3px solid rgba(93, 142, 144, 0.75);
   outline-offset: 2px;
 }
 
@@ -69,33 +66,63 @@ img {
 
 .pixel-font {
   font-family: 'Press Start 2P', monospace;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .cottage-panel {
-  background: rgba(245, 236, 222, 0.88);
-  border: 3px solid rgba(82, 64, 53, 0.34);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.4), 0 14px 0 rgba(120, 93, 68, 0.18);
+  background: rgba(244, 235, 223, 0.9);
+  border: 3px solid rgba(82, 64, 52, 0.38);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.35), 0 14px 0 rgba(111, 84, 61, 0.14);
   border-radius: 18px;
 }
 
-.px-box {
-  border: 3px solid rgba(92, 76, 61, 0.45);
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2);
-}
-
 .room-scene {
-  background:
-    linear-gradient(180deg, rgba(247, 216, 164, 0.46) 0%, rgba(239, 224, 196, 0.88) 24%, rgba(211, 187, 141, 0.84) 100%);
+  background: linear-gradient(180deg, rgba(246, 222, 170, 0.55) 0%, rgba(236, 219, 186, 0.92) 28%, rgba(212, 184, 131, 0.82) 100%);
 }
 
-.pixel-glow {
-  box-shadow: 0 0 0 2px rgba(93, 96, 70, 0.15), 0 0 18px rgba(255, 212, 122, 0.2);
+.scene-floor {
+  background: linear-gradient(180deg, #d6ae7b 0%, #c38d5c 100%);
+}
+
+.scene-wall {
+  background: linear-gradient(180deg, #efe2c4 0%, #e7d3a8 100%);
+}
+
+.pixel-badge {
+  border: 2px solid rgba(82, 64, 52, 0.35);
+  background: rgba(255,255,255,0.42);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.room-pill {
+  background: rgba(255,255,255,0.46);
+  border: 2px solid rgba(92, 76, 61, 0.32);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.pixel-button {
+  border: 3px solid rgba(60, 49, 39, 0.42);
+  border-radius: 12px;
+  box-shadow: 0 4px 0 rgba(90, 70, 54, 0.16);
+}
+
+.pixel-button-primary {
+  background: linear-gradient(180deg, #4a7a74 0%, #385f5d 100%);
+  color: white;
+  border-color: rgba(30, 54, 50, 0.75);
+}
+
+.pixel-button-secondary {
+  background: rgba(255,255,255,0.55);
+  color: var(--ink);
+  border-color: rgba(74, 65, 56, 0.35);
 }
 
 @keyframes sway {
   0%, 100% { transform: translateY(0px) rotate(-1deg); }
-  50% { transform: translateY(-3px) rotate(1deg); }
+  50% { transform: translateY(-4px) rotate(1deg); }
 }
 
 @keyframes flicker {
@@ -105,86 +132,12 @@ img {
   70% { opacity: 1; }
 }
 
-@keyframes floaty {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
 .sway {
   animation: sway 4s ease-in-out infinite;
 }
 
 .flicker {
-  animation: flicker 3.2s ease-in-out infinite;
-}
-
-.floaty {
-  animation: floaty 3s ease-in-out infinite;
-}
-
-.pulse-soft {
-  animation: pulse-soft 2.4s ease-in-out infinite;
-}
-
-.blink {
-  animation: blink 1.6s ease-in-out infinite;
-}
-
-.pixel-badge {
-  border: 2px solid rgba(82, 64, 53, 0.35);
-  background: rgba(255,255,255,0.46);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
-}
-
-.room-label {
-  background: rgba(247, 242, 236, 0.78);
-  border: 2px solid rgba(98, 76, 61, 0.35);
-  border-radius: 999px;
-  box-shadow: 0 4px 0 rgba(92, 72, 57, 0.12);
-}
-
-.room-pill {
-  background: rgba(255, 255, 255, 0.46);
-  border: 2px solid rgba(92, 76, 61, 0.3);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
-}
-
-.scene-floor {
-  background: linear-gradient(180deg, #d7b482 0%, #c5986d 100%);
-}
-
-.scene-wall {
-  background: linear-gradient(180deg, #f1e1c0 0%, #e5d0a8 100%);
-}
-
-.pixel-button {
-  border: 3px solid rgba(63, 53, 41, 0.42);
-  border-radius: 12px;
-  box-shadow: 0 4px 0 rgba(92, 72, 57, 0.18);
-}
-
-.pixel-button-primary {
-  background: linear-gradient(180deg, #4a7a75 0%, #3d6661 100%);
-  color: white;
-  border: 3px solid rgba(27, 52, 49, 0.80);
-}
-
-.pixel-button-secondary {
-  background: rgba(255,255,255,0.55);
-  color: var(--ink);
-  border: 3px solid rgba(77, 68, 59, 0.35);
+  animation: flicker 3s ease-in-out infinite;
 }
 
 @media (max-width: 640px) {
