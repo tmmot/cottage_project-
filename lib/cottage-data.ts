@@ -1,61 +1,100 @@
-import { Clock3, BookOpenText, Music4, Camera, NotebookPen, Mailbox, PawPrint } from "lucide-react";
+import { type LucideIcon, BookOpenText, Camera, Clock3, Mailbox, Music4, NotebookPen, PawPrint } from "lucide-react";
 
-export type CottageObject = {
+export type CottageFeature = {
   id: string;
   title: string;
+  summary: string;
   description: string;
   highlights: string[];
-  icon: typeof PawPrint;
+  status: string;
+  actionLabel: string;
+  accentClass: string;
+  icon: LucideIcon;
 };
 
-export const cottageObjects: CottageObject[] = [
+export const cottageObjects: CottageFeature[] = [
   {
     id: "fridge",
     title: "Fridge Calendar",
-    description: "A little calendar pinned to the fridge, full of date notes and upcoming plans.",
-    highlights: ["Upcoming plans", "Google Calendar sync", "Cozy paper notes"],
+    summary: "A paper calendar pinned to the fridge with dates, plans, and sweet reminders.",
+    description:
+      "The kitchen fridge carries the rhythm of their shared life: upcoming plan notes, fun dates, and little reminders tucked on colorful paper slips.",
+    highlights: ["Upcoming events", "Calendar notes", "Shared planning"],
+    status: "Active",
+    actionLabel: "Open calendar",
+    accentClass: "bg-amber-100 text-amber-800 border-amber-200",
     icon: Clock3,
   },
   {
     id: "record-player",
     title: "Record Player",
-    description: "A warm vintage record player that keeps the room alive with shared music.",
-    highlights: ["Spotify + Apple Music", "Live playback state", "Animated vinyl"],
+    summary: "A warm record player that keeps the room alive with shared music and familiar tracks.",
+    description:
+      "A cozy little vinyl corner with live playback info, personal favorites, and the comforting feeling that music is always living in the room.",
+    highlights: ["Spotify + Apple Music", "Live playback status", "Warm room ambience"],
+    status: "Listening",
+    actionLabel: "Play music",
+    accentClass: "bg-violet-100 text-violet-800 border-violet-200",
     icon: Music4,
   },
   {
     id: "projector",
     title: "Projector Memories",
-    description: "A tiny projector that brings favorite memories to life in warm, flickering light.",
-    highlights: ["Photo uploads", "Favorite memories", "Timeline categories"],
+    summary: "A flickering projector that casts favorite photographs across the walls in soft light.",
+    description:
+      "Memories drift in like a tiny cinema: today, one month ago, one year ago, and all the little everyday moments collected over time.",
+    highlights: ["Photo gallery", "Favorites and captions", "Timeline categories"],
+    status: "Warm glow",
+    actionLabel: "Open memories",
+    accentClass: "bg-rose-100 text-rose-800 border-rose-200",
     icon: Camera,
   },
   {
     id: "bookshelf",
     title: "Bookshelf & Whiteboard",
-    description: "A corner for stories, questions, recommendations, and shared thoughts.",
-    highlights: ["Whiteboard notes", "Bookshelves", "Movies and shows"],
+    summary: "A corner for recommendations, questions, and little handwritten notes left behind.",
+    description:
+      "The bookshelf is where stories, shows, books, and little thoughts live together — a personal library of what they want to share with each other.",
+    highlights: ["Whiteboard thoughts", "Books and recommendations", "Movies and shows"],
+    status: "Shared shelf",
+    actionLabel: "Browse shelf",
+    accentClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
     icon: BookOpenText,
   },
   {
     id: "fitness",
     title: "Yoga Mat & Fitness Notebook",
-    description: "A small wellness corner for movement, motivation, and shared routines.",
-    highlights: ["Daily check-ins", "Goals and wins", "Encouragement"],
+    summary: "A gentle corner for movement, goals, wins, and encouragement.",
+    description:
+      "A quiet place to log the day’s movement, celebrate progress, and remind each other that effort and care are part of the rhythm of life.",
+    highlights: ["Daily activity", "Goals", "Encouragement"],
+    status: "Wellness",
+    actionLabel: "Open notebook",
+    accentClass: "bg-lime-100 text-lime-800 border-lime-200",
     icon: NotebookPen,
   },
   {
     id: "mailbox",
     title: "Mailbox",
-    description: "A little notification center for love notes, updates, and shared moments.",
-    highlights: ["Unread updates", "Direct actions", "Cottage-aware alerts"],
+    summary: "A tiny mailbox for notifications, notes, and little updates from each other.",
+    description:
+      "The doorway mailbox gathers the life currently happening in the cottage: new messages, memories, reminders, and shared updates.",
+    highlights: ["Unread updates", "Clickable notices", "Shared activity"],
+    status: "New note",
+    actionLabel: "Check mailbox",
+    accentClass: "bg-sky-100 text-sky-800 border-sky-200",
     icon: Mailbox,
   },
   {
     id: "paiki",
     title: "Paiki",
-    description: "A tiny digital poodle companion who guides the cottage and keeps the mood playful.",
-    highlights: ["Dialogue system", "Tutorial replay", "Friendly reminders"],
+    summary: "A tiny digital poodle companion who wanders the room and keeps the cottage feeling alive.",
+    description:
+      "Paiki is a charming little guide: playful, curious, a little sleepy, and always ready to say something warm and personal.",
+    highlights: ["Tutorial replay", "Guided tour", "Context-aware dialogue"],
+    status: "Companion",
+    actionLabel: "Talk to Paiki",
+    accentClass: "bg-orange-100 text-orange-800 border-orange-200",
     icon: PawPrint,
   },
 ];
@@ -66,4 +105,12 @@ export const onboardingDialogues = [
   "He made this website for your birthday!",
   "My name is Paiki. Don't confuse me with your other dog, I am your digital companion!",
   "Let me show you around.",
+  "The fridge keeps the calendar, the record player keeps the music, and the projector keeps your favorite memories warm.",
+  "If you ever need a little guidance, just click me again.",
+];
+
+export const cottageQuickFacts = [
+  "A place for shared routines and soft moments.",
+  "Interactive objects live inside the room itself.",
+  "Everything is designed to feel personal, warm, and alive.",
 ];
