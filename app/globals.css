@@ -1,147 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg-cream: #e9dcc1;
-  --bg-warm: #d9c09f;
-  --panel: #f3e6d5;
-  --panel-soft: #f8f1e7;
-  --ink: #2b2927;
-  --muted: #645a52;
-  --wood: #c98c61;
-  --wood-deep: #9b6b45;
-  --floor: #d5a778;
-  --wall: #efe1c3;
-  --teal: #5d8e90;
-  --teal-deep: #335f63;
-  --green: #7f9d78;
-  --rose: #d78874;
-  --gold: #d6b364;
-  --shadow: rgba(60, 42, 28, 0.16);
-}
-
-html {
-  scroll-behavior: smooth;
-  background: var(--bg-cream);
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #e8d9ba 0%, #d8c7a4 100%);
-  color: var(--ink);
-  font-family: 'VT323', monospace;
-  letter-spacing: 0.02em;
-}
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-button, input, textarea {
-  font-family: inherit;
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5e6d3 0%, #e8d4c0 100%);
 }
 
-button {
-  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+body {
+  color: #3d3d3d;
+  line-height: 1.6;
 }
 
-button:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.02);
+/* Cozy cottage color palette */
+:root {
+  --warm-cream: #f5e6d3;
+  --warm-beige: #e8d4c0;
+  --warm-brown: #a67c52;
+  --dark-brown: #5c4033;
+  --accent-turquoise: #4a9ba7;
+  --accent-warm: #d4845c;
+  --text-primary: #3d3d3d;
+  --text-secondary: #6b6b6b;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
 }
 
-button:focus-visible {
-  outline: 3px solid rgba(93, 142, 144, 0.75);
-  outline-offset: 2px;
+/* Prevent default scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
 }
 
-.pixel-font {
-  font-family: 'Press Start 2P', monospace;
-  letter-spacing: 0.08em;
+::-webkit-scrollbar-thumb {
+  background: var(--warm-brown);
+  border-radius: 4px;
 }
 
-.cottage-panel {
-  background: rgba(244, 235, 223, 0.9);
-  border: 3px solid rgba(82, 64, 52, 0.38);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.35), 0 14px 0 rgba(111, 84, 61, 0.14);
-  border-radius: 18px;
-}
-
-.room-scene {
-  background: linear-gradient(180deg, rgba(246, 222, 170, 0.55) 0%, rgba(236, 219, 186, 0.92) 28%, rgba(212, 184, 131, 0.82) 100%);
-}
-
-.scene-floor {
-  background: linear-gradient(180deg, #d6ae7b 0%, #c38d5c 100%);
-}
-
-.scene-wall {
-  background: linear-gradient(180deg, #efe2c4 0%, #e7d3a8 100%);
-}
-
-.pixel-badge {
-  border: 2px solid rgba(82, 64, 52, 0.35);
-  background: rgba(255,255,255,0.42);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
-}
-
-.room-pill {
-  background: rgba(255,255,255,0.46);
-  border: 2px solid rgba(92, 76, 61, 0.32);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
-}
-
-.pixel-button {
-  border: 3px solid rgba(60, 49, 39, 0.42);
-  border-radius: 12px;
-  box-shadow: 0 4px 0 rgba(90, 70, 54, 0.16);
-}
-
-.pixel-button-primary {
-  background: linear-gradient(180deg, #4a7a74 0%, #385f5d 100%);
-  color: white;
-  border-color: rgba(30, 54, 50, 0.75);
-}
-
-.pixel-button-secondary {
-  background: rgba(255,255,255,0.55);
-  color: var(--ink);
-  border-color: rgba(74, 65, 56, 0.35);
-}
-
-@keyframes sway {
-  0%, 100% { transform: translateY(0px) rotate(-1deg); }
-  50% { transform: translateY(-4px) rotate(1deg); }
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 0.82; }
-  35% { opacity: 1; }
-  55% { opacity: 0.9; }
-  70% { opacity: 1; }
-}
-
-.sway {
-  animation: sway 4s ease-in-out infinite;
-}
-
-.flicker {
-  animation: flicker 3s ease-in-out infinite;
-}
-
-@media (max-width: 640px) {
-  .pixel-font {
-    letter-spacing: 0.06em;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-brown);
 }
