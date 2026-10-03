@@ -18,22 +18,22 @@ export function PaikiCompanion({ dialogues }: PaikiCompanionProps) {
   };
 
   return (
-    <div className="cottage-panel rounded-[28px] p-4 sm:p-5">
+    <div className="cottage-panel p-4 sm:p-5">
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f4dac1] text-[#473a30] shadow-sm">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-[#906d58] bg-[#f2d9b8] text-[#453730] shadow-[0_4px_0_rgba(93,76,62,0.14)]">
             <PawPrint className="h-5 w-5" />
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">Paiki</p>
-            <h3 className="text-xl font-black text-stone-800">Digital companion</h3>
+            <p className="text-[0.52rem] font-bold uppercase tracking-[0.22em] text-stone-500">Paiki</p>
+            <h3 className="text-2xl font-black text-stone-900">Digital companion</h3>
           </div>
         </div>
 
         <button
           type="button"
           onClick={() => setExpanded((prev) => !prev)}
-          className="rounded-full border border-stone-300 bg-stone-100 px-3 py-1.5 text-xs font-semibold text-stone-700"
+          className="pixel-button pixel-button-secondary px-3 py-2 text-[0.52rem] font-bold uppercase tracking-[0.16em]"
         >
           {expanded ? "Hide" : "Show"}
         </button>
@@ -41,24 +41,22 @@ export function PaikiCompanion({ dialogues }: PaikiCompanionProps) {
 
       {expanded && (
         <div className="mt-4 space-y-4">
-          <div className="rounded-[22px] border border-[#e7d2b1] bg-[#fffaf3] p-4 shadow-inner">
-            <p className="text-lg font-semibold italic leading-relaxed text-stone-700">
-              “{currentDialogue}”
-            </p>
+          <div className="rounded-[16px] border-[3px] border-[#d4c2a7] bg-[#fffaf3] p-4 shadow-inner">
+            <p className="text-[1.15rem] leading-relaxed text-stone-700">“{currentDialogue}”</p>
           </div>
 
-          <div className="flex gap-3">
+          <div className="grid grid-cols-2 gap-3">
             <button
               type="button"
               onClick={handleNext}
-              className="flex-1 rounded-xl bg-[#4d7f7a] px-3 py-2.5 font-semibold text-white shadow-sm"
+              className="pixel-button pixel-button-primary px-3 py-3 text-[0.58rem] font-bold uppercase tracking-[0.18em]"
             >
               {step === dialogues.length - 1 ? "Replay" : "Next"}
             </button>
             <button
               type="button"
               onClick={() => setStep(0)}
-              className="rounded-xl border border-stone-300 bg-stone-100 px-3 py-2.5 font-semibold text-stone-700"
+              className="pixel-button pixel-button-secondary px-3 py-3 text-[0.58rem] font-bold uppercase tracking-[0.18em]"
             >
               Reset
             </button>

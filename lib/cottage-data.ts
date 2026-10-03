@@ -1,5 +1,3 @@
-import { type LucideIcon, BookOpenText, Camera, Clock3, Mailbox, Music4, NotebookPen, PawPrint } from "lucide-react";
-
 export type CottageFeature = {
   id: string;
   title: string;
@@ -9,7 +7,7 @@ export type CottageFeature = {
   status: string;
   actionLabel: string;
   accentClass: string;
-  icon: LucideIcon;
+  icon: any;
 };
 
 export const cottageObjects: CottageFeature[] = [
@@ -22,8 +20,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Upcoming events", "Calendar notes", "Shared planning"],
     status: "Active",
     actionLabel: "Open calendar",
-    accentClass: "bg-amber-100 text-amber-800 border-amber-200",
-    icon: Clock3,
+    accentClass: "border-[#d6b36a] bg-[#f3e6b8] text-[#5b5135]",
+    icon: null,
   },
   {
     id: "record-player",
@@ -34,8 +32,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Spotify + Apple Music", "Live playback status", "Warm room ambience"],
     status: "Listening",
     actionLabel: "Play music",
-    accentClass: "bg-violet-100 text-violet-800 border-violet-200",
-    icon: Music4,
+    accentClass: "border-[#c3b7d8] bg-[#ece2fa] text-[#4f4a5d]",
+    icon: null,
   },
   {
     id: "projector",
@@ -46,8 +44,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Photo gallery", "Favorites and captions", "Timeline categories"],
     status: "Warm glow",
     actionLabel: "Open memories",
-    accentClass: "bg-rose-100 text-rose-800 border-rose-200",
-    icon: Camera,
+    accentClass: "border-[#d9b0a4] bg-[#f6d8d2] text-[#5c443d]",
+    icon: null,
   },
   {
     id: "bookshelf",
@@ -58,8 +56,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Whiteboard thoughts", "Books and recommendations", "Movies and shows"],
     status: "Shared shelf",
     actionLabel: "Browse shelf",
-    accentClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
-    icon: BookOpenText,
+    accentClass: "border-[#b9d4c5] bg-[#dfeee6] text-[#3d564d]",
+    icon: null,
   },
   {
     id: "fitness",
@@ -70,8 +68,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Daily activity", "Goals", "Encouragement"],
     status: "Wellness",
     actionLabel: "Open notebook",
-    accentClass: "bg-lime-100 text-lime-800 border-lime-200",
-    icon: NotebookPen,
+    accentClass: "border-[#bedaa0] bg-[#e8f4d6] text-[#3f563a]",
+    icon: null,
   },
   {
     id: "mailbox",
@@ -82,8 +80,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Unread updates", "Clickable notices", "Shared activity"],
     status: "New note",
     actionLabel: "Check mailbox",
-    accentClass: "bg-sky-100 text-sky-800 border-sky-200",
-    icon: Mailbox,
+    accentClass: "border-[#a8c9d7] bg-[#dfeef5] text-[#3d4d59]",
+    icon: null,
   },
   {
     id: "paiki",
@@ -94,8 +92,8 @@ export const cottageObjects: CottageFeature[] = [
     highlights: ["Tutorial replay", "Guided tour", "Context-aware dialogue"],
     status: "Companion",
     actionLabel: "Talk to Paiki",
-    accentClass: "bg-orange-100 text-orange-800 border-orange-200",
-    icon: PawPrint,
+    accentClass: "border-[#e4c29d] bg-[#f5e0c7] text-[#584535]",
+    icon: null,
   },
 ];
 
@@ -110,7 +108,7 @@ export const onboardingDialogues = [
 ];
 
 export const cottageQuickFacts = [
-  "A place for shared routines and soft moments.",
-  "Interactive objects live inside the room itself.",
-  "Everything is designed to feel personal, warm, and alive.",
+  "Shared routines",
+  "soft moments",
+  "cozy details",
 ];
